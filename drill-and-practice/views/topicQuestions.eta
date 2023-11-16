@@ -1,0 +1,12 @@
+<% layout("./layouts/layout.eta") %>
+
+<h1><%= it.topic.name %> </h1>
+
+<h1>Add questions for this topic </h1>
+
+<form method ="POST" action="/topics/:id/questions">
+Add question text:</br>
+<input type="text" name="question_text" /></br>
+<imput type="submit" value="Add"/>
+</form>
+
