@@ -7,7 +7,7 @@ const addTopic = async (userId, name) => {
   };
 
   const listTopics = async () => {
-    const rows = await sql `SELECT * FROM topics`;
+    const rows = await sql `SELECT * FROM topics ORDER BY name`;
     return rows;
   };
 
@@ -25,14 +25,20 @@ const addTopic = async (userId, name) => {
     WHERE id = ${topicId}`;
   };
 
-
-const findById = async (id) => {
+  const findTopicById = async (id) => {
     console.log(id);
-    const topic = await sql `SELECT * FROM topics WHERE id = ${ id }`;
-    console.log("topic on" + topic[0])
-    return topic[0];
+    const topicbyid = await sql `SELECT * FROM topics WHERE id = ${ id }`;
+    console.log(topicbyid);
+    return topicbyid;
 
 };
 
+const topicNameById = async (id) => {
+  const rows = await sql`SELECT name FROM topics WHERE id = ${id}`;
+  return rows[0];
+};
+
+
+
   
-  export { addTopic, listTopics, deleteTopic, findById };
+  export { addTopic, listTopics, deleteTopic, findTopicById, topicNameById };

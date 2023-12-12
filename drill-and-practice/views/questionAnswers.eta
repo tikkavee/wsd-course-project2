@@ -1,0 +1,59 @@
+<% layout("./layouts/layout.eta") %>
+
+
+
+
+<h1>Question name: <%= it.questionName.question_text %>   </h1>
+
+<h1>Answer options of this question </h1>
+<% if (it.answerOptions && it.answerOptions.length > 0 ) {%>
+
+<ul>
+<% it.answerOptions.forEach(option => { %>
+<li>
+<%= option.option_text %> <%= option.is_correct%> 
+<form method="POST" action="/topics/<%= it.topic[0].id%>/questions/<%=it.questionName.id%>/options/<%=option.id%>/delete">
+<input type="submit" value="Delete option" />
+</form>
+</li>
+<% }); %>
+</ul>
+
+<% } else { %>
+
+<form method="POST" action="/topics/<%= it.topic[0].id%>/questions/<%=it.questionName.id%>/delete">
+<input type="submit" value="Delete question" /> 
+</form>
+
+
+<% } %>
+
+
+
+
+
+
+<h2> Add answer option </h2>
+
+<% if (it.data) { %>
+<ul>
+    <% Object.keys(it.data).forEach((attribute) => { %>
+        <% Object.values(it.data[attribute]).forEach((err) => { %>
+            <li><%= err %></li>
+        <% }); %>
+    <% }); %>
+</ul>
+<% } %>
+
+
+<form method ="POST" action="/topics/<%= it.topic[0].id %>/questions/<%=it.questionName.id%>/options">
+Add answer option text:</bsr>
+<input type="text" name="option_text" value="<%= it.nimi ? it.nimi : ""%>" /></br>
+<input type="checkbox" id="checkboxId1" name="is_correct">
+<label for="checkboxId1"> Is correct </label> <br>
+<input type="submit" value="Add"/>
+</form>
+
+<a href="/topics">See all topics</a>
+
+

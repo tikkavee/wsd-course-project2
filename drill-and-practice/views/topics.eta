@@ -1,8 +1,8 @@
 <% layout("./layouts/layout.eta") %>
 
-<h1>Topics!</h1>
+<h1>Topics</h1>
 
-<h2>Current Topics</h2>
+
 
 <% if (it.topics && it.topics.length > 0) { %>
 
@@ -24,8 +24,20 @@
 
 <h2>Add a topic!</h2>
 
+
+<% if (it.data) { %>
+<ul>
+    <% Object.keys(it.data).forEach((attribute) => { %>
+        <% Object.values(it.data[attribute]).forEach((err) => { %>
+            <li><%= err %></li>
+        <% }); %>
+    <% }); %>
+</ul>
+<% } %>
+
 <form method="POST" action="/topics">
 Name:<br/>
-<input type="text" name="name" /><br/>
+<input type="text" name="name" value="<%= it.nimi ? it.nimi : ""%>" /><br/>
 <input type="submit" value="Add" />
 </form>
+<a href ="/quiz"> Answer questions </a>

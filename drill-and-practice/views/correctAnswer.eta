@@ -1,0 +1,4 @@
+<h1>Your answer was correct!</h1>
+
+
+<a href="/quiz/<%= it.topic%>" >Next question </a>

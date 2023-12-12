@@ -1,3 +1,29 @@
-<% layout('./layouts/layout.eta') %>
+<% layout('./layouts/layout1.eta') %>
+<h2> Statistics </h2>
+<% if (it.questions === 0) { %>
+    <h3>No questions yet</h3>
+<% } else { %>
+ <ul>
+  <li>
+    <p>Questions <%= it.questions %> </p>
+    
 
-<a href="/topics">See topics</a>
+  </li>
+ </ul>
+ <% } %>
+ <% if (it.answers === 0) { %>
+    <h3>No answers yet</h3>
+<% } else { %>
+ <ul>
+  <li>
+    <p>Answers <%= it.answers %> </p>
+    
+
+  </li>
+ </ul>
+ <% } %>
+
+
+<a href="/topics">See topics (requires login)</a><br/>
+<a href="/auth/login">Login</a><br/>
+<a href="/auth/register">Register</a><br/>

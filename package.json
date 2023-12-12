@@ -1,0 +1,22 @@
+{
+  "name": "wsd-35",
+  "version": "1.0.0",
+  "description": "Write the documentation of your project here. Do not include your personal details (e.g. name or student number).",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tikkavee/wsd-course-project2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tikkavee/wsd-course-project2/issues"
+  },
+  "homepage": "https://github.com/tikkavee/wsd-course-project2#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.10.4"
+  }
+}
